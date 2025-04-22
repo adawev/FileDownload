@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Download | Diyor Adashev</title>
+</head>
+<body>
+<form action="http://localhost:8080/file/upload" method="POST" enctype="multipart/form-data">
+    <label for="InputFile">File ni tanlang</label>
+    <input type="file" id="InputFile" name="file">
+    <button type="submit">Yuborish</button>
+</form>
+<h2>Rasmni yuklab olish</h2>
+
+<form action="/file/download/1" method="GET">
+    <button type="submit">Yuklab olish</button>
+</form>
+
+<script>
+    const form  = document.getElementById("downloadForm");
+    form.addEventListener('submit', function (e){
+        e.preventDefault();
+        const imageId = document.getElementById("imageId").value;
+        if (imageId){
+            window.location.href = 'file/download/' + imageId;
+        }else {
+            alert("Iltimos, Id kiriting.")
+        }
+    })
+</script>
+</body>
+</html>
